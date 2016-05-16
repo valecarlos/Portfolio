@@ -77,7 +77,35 @@ li a:hover {
 	height: calc(100% + 50px);
 	transform: translate3d(-40px,-40px,0px);
 }
+.header-title{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: rgba(34,34,34,0.5);
+	color: white;
+	text-align: center;
+}
 
+.header-title div{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.header-title div h1{
+	display: none;
+	font-size: 4em;
+	font-weight: 900;
+}
+
+.header-title div p{
+	font-size: 2em;
+	font-weight: 300;
+	text-shadow: 3px 2px rgba(34,34,34,0.7);
+}
 .content{
 	margin: 40px 10% 20px 10%;
 	min-height: 800px;
@@ -396,6 +424,9 @@ it won't behave just as it would usually do with a normal background color*/
 /*mobile menu */
 @media only screen and (min-width: 320px) and (max-width: 768px) {
 
+	#header{
+		height: 200px;
+	}
 	.burger-nav{
 		display: block;
 	}
@@ -421,6 +452,9 @@ it won't behave just as it would usually do with a normal background color*/
 
 	#menu.openMenu{
 		height: auto;
+	}
+	.header-title div p{
+	font-size: 1em;
 	}
 
 }
