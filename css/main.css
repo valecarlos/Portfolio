@@ -7,17 +7,89 @@ body{
 	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 	border-bottom: solid 3px #444;
 	font-size: large;
+	display: none;
 }
 
 .burger-nav{
 	display: none;
 	float: right;
-	margin: 10px;
+	margin: 15px;
 	padding: 6px;
 	border: 1px solid transparent;
 	background-color: transparent;
 	cursor: pointer;
 	outline:none;
+}
+
+.slide-in-menu{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(10,10,10,0.7);
+	z-index: 1000;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.3s ease-in;
+}
+/*to clear the button that is floated right just above the title div*/
+.slide-in-menu div{
+	clear: both;
+}
+
+.slide-in-visible{
+	visibility: initial;
+	opacity: 1;
+}
+
+.close-menu{
+	float: right;
+	margin: 2px;
+	padding: 2px;
+	border: 1px solid transparent;
+	background-color: transparent;
+	cursor: pointer;
+	outline:none;
+	color: grey;
+}
+
+.options-menu{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	background-color: white;
+	border-right: solid 3px #9E9E9E;
+}
+
+.options-menu ul{
+	list-style-type: none;
+	padding: 20px;
+}
+
+.options-menu h3{
+	border-bottom: solid 2px lightgrey;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.options-menu li a {
+	font-size: 18px;
+    display: block;
+    color: black;
+    text-align: left;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.options-menu li a:hover {
+	color: white;
+	background-color: ;
+}
+.options-menu li a span{
+	margin-left: 12px;
 }
 
 .menu-bar{
@@ -29,23 +101,6 @@ body{
 	border-radius: 2px;
 }
 /*pseudo-element to clear floats so the container div can actually wrap its content*/
-.top:after{
-    clear: both;
-    content: "";
-    display: block;
-}
-.top #menu{
-	display: block;
-	list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #222;
-    box-sizing: border-box;
-}
-.top #menu li{
-	float: left;
-}
 
 li a {
     display: block;
@@ -63,6 +118,7 @@ li a:hover {
 .go-rigth{
 	float: right;
 }
+
 #header{
 	position: relative;
 	width: 100%;
@@ -83,7 +139,7 @@ li a:hover {
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
-	background-color: rgba(34,34,34,0.5);
+	background-color: rgba(0,0,0,0.7);
 	color: white;
 	text-align: center;
 }
@@ -93,6 +149,10 @@ li a:hover {
 	top: 50%;
 	left: 50%;
 	transform: translateX(-50%) translateY(-50%);
+}
+
+.header-title .burger-visible{
+	display: block;
 }
 
 .header-title div h1{
@@ -106,28 +166,18 @@ li a:hover {
 	font-weight: 300;
 	text-shadow: 3px 2px rgba(34,34,34,0.7);
 }
+
+.header-title div p span{
+	font-size: 2em;
+	font-weight: 400;
+}
 .content{
 	margin: 40px 10% 20px 10%;
 	min-height: 800px;
 	text-align: center;
 }
 
-.menu-left{
-	width: 20%;
-	float:left;
-}
 
-.menu-left img{
-	transition: all 0.4s ease-in-out;
-}
-
-.menu-left img:hover{
-	transform: rotate(-90deg);
-}
-.menu-right{
-	width: 80%;
-	float:left;
-}
 /*this contains the image card and the description of the project*/
 .desc-card{
 	/*min-width: 300px;*/
@@ -158,7 +208,8 @@ li a:hover {
 }
 
 .card-container .card{
-	background: rgba(3,3,3,0.9);
+	/*background: rgba(3,3,3,0.9);*/
+	background: rgba(35, 105, 236, 0.8);
 	cursor: pointer;
 	position: absolute;
 	top: 0;
@@ -178,11 +229,10 @@ li a:hover {
 }
 
 .inner-div{
-	position: relative;
-	height: 100%;
-	width: 100%;
-	display: table;
-	padding-top: 20%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
 }
 
 .inner-div span{
@@ -193,10 +243,24 @@ li a:hover {
 	vertical-align: middle;
 }
 
+.inner-div span.link-content{
+	border: solid 2px white;
+	padding: 10px;
+}
+
 .inner-div img{
 	width: 40px;
 	height: 40px;
 }
+
+.git-link{
+	display: inline-block;
+    padding: 6px;
+    margin: 7px;
+    text-decoration: underline;
+    font-size: 15px;
+}
+
 .skills-section{
 	background-color: #E4E4E4; 
 	min-height: 300px;
@@ -427,19 +491,13 @@ it won't behave just as it would usually do with a normal background color*/
 	#header{
 		height: 200px;
 	}
+
 	.burger-nav{
-		display: block;
-	}
-	.top #menu li{
-	float: none;
+		margin: 10px;
 	}
 	
-	#menu{
-		height: 0px;
-	}
-
 	.chart .axis {
-	width: 25%; 
+		width: 25%; 
 	}
 
 	.chart li {
@@ -450,11 +508,17 @@ it won't behave just as it would usually do with a normal background color*/
 		height: 32px;
 	}
 
-	#menu.openMenu{
-		height: auto;
-	}
 	.header-title div p{
-	font-size: 1em;
+		font-size: 1em;
 	}
 
+	.header-title div p span{
+		font-size: 1em;
+	}
+}
+
+@media only screen and (min-width: 750px) {
+	.options-menu{
+		width: 300px;
+	}
 }

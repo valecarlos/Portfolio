@@ -1,10 +1,40 @@
 //using jquery for this
-$( document ).ready(function() {
+$( document ).ready(function() {  
+ /*
+    var imgArr = ['img/HeaderImg.jpg','img/Grid.jpg','img/GifChallenge.JPG'];
+    var currentImg = 0;
 
-    $(".burger-nav").on("click", function(){
-        console.log("i should open")
-        $("#menu").toggleClass("openMenu");
+    setInterval(function(){
+        currentImg = currentImg == imgArr.length -1 ? 0 : currentImg+1;
+        $('#headerImg').fadeTo(1000,0.40, function(){
+            $('#headerImg').attr("src",imgArr[currentImg]);
+        }).fadeTo(1000,1);;
+        
+        console.log(imgArr[currentImg]);
+    },3000);
+
+*/
+    $("#slideMenuButton").on("click", function(){
+        console.log("im here");
+        $(".slide-in-menu").toggleClass("slide-in-visible");
+        return  false;
     });
+
+    $(".slide-in-menu").on("click", function(event){
+        if(this == event.target){
+            $(".slide-in-menu").removeClass("slide-in-visible");    
+        }
+    });
+
+    $(".close-menu").on("click", function(event){
+        $(".slide-in-menu").removeClass("slide-in-visible");    
+    });
+
+    /*
+    $(".options-menu li a").on("click", function(event){
+        $(".slide-in-menu").removeClass("slide-in-visible");    
+    });*/
+
     //initialize the li's height at 5%, i don't initialize them from the css in case JavaScript is not Active
     $('.skill-html').css("height","5%");
     $('.skill-css').css("height","5%");
@@ -36,7 +66,8 @@ $( document ).ready(function() {
             $('.back-to-top').removeClass('show-me');
         }
     });
-//**********************************************************8
+
+    //***************************IMAGE MOVE SECTION *******************************
     $(document).mousemove(function(e){
         var newvalueY;
         var newvalueX;
@@ -54,8 +85,9 @@ $( document ).ready(function() {
         	document.getElementById("headerImg").style.transform = "translate3d("+newvalueX+"px," + newvalueY +"px,0px)";
         }, 100);
     });
-//great code snippet to smoothly scroll to Tags using Anchors and their href. while updating the URL so the user can go back
-//http://stackoverflow.com/questions/7717527/smooth-scrolling-when-clicking-an-anchor-link
+
+    //great code snippet to smoothly scroll to Tags using Anchors and their href. while updating the URL so the user can go back
+    //http://stackoverflow.com/questions/7717527/smooth-scrolling-when-clicking-an-anchor-link
     var $root = $('html, body');
     $('a').click(function() {
         var href = $.attr(this, 'href');
