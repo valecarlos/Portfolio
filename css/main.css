@@ -10,15 +10,38 @@ body{
 	display: none;
 }
 
+img.main-logo{
+	width: 100px;
+}
+
+img.menu-logo{
+	width: 40px;
+}
 .burger-nav{
-	display: none;
-	float: right;
+	/*float: right;*/
+	position: fixed;
+	right: 0px;
 	margin: 15px;
 	padding: 6px;
 	border: 1px solid transparent;
 	background-color: transparent;
 	cursor: pointer;
 	outline:none;
+	z-index: 1;
+	-webkit-animation: example;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay: 1s;
+	animation-name: example;
+    animation-duration: 1s;
+    animation-delay: 1s;
+}
+
+@keyframes burger-beat {
+    0%   {transform: scale(1) translateY(0px)}
+    25%  {transform: scale(1.1) translateY(-10px)}
+    50%  {transform: scale(1) translateY(0px)}
+    75%  {transform: scale(1.1) translateY(-10px)}
+    100% {transform: scale(1)translateY(0px)}
 }
 
 .slide-in-menu{
@@ -31,6 +54,7 @@ body{
 	z-index: 1000;
 	visibility: hidden;
 	opacity: 0;
+	-webkit-transition: all 0.3s ease-in;
 	transition: all 0.3s ease-in;
 }
 /*to clear the button that is floated right just above the title div*/
@@ -39,7 +63,7 @@ body{
 }
 
 .slide-in-visible{
-	visibility: initial;
+	visibility: visible;
 	opacity: 1;
 }
 
@@ -81,6 +105,7 @@ body{
     text-align: left;
     padding: 14px 16px;
     text-decoration: none;
+    -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
 
@@ -99,6 +124,8 @@ body{
 	height: 3px;
 	margin-top: 4px;
 	border-radius: 2px;
+	-webkit-transition: background-color 0.6s ease-in-out;
+	transition: background-color 0.6s ease-in-out;
 }
 /*pseudo-element to clear floats so the container div can actually wrap its content*/
 
@@ -108,6 +135,7 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
 
@@ -131,6 +159,8 @@ li a:hover {
 	display: block;
 	width: calc(100% + 50px);
 	height: calc(100% + 50px);
+	-ms-transform: translate3d(-40px,-40px,0px);
+    -webkit-transform: translate3d(-40px,-40px,0px);
 	transform: translate3d(-40px,-40px,0px);
 }
 .header-title{
@@ -148,6 +178,8 @@ li a:hover {
 	position: absolute;
 	top: 50%;
 	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
 	transform: translateX(-50%) translateY(-50%);
 }
 
@@ -232,6 +264,8 @@ li a:hover {
 	position: absolute;
 	top: 50%;
 	left: 50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
 	transform: translateX(-50%) translateY(-50%);
 }
 
@@ -262,7 +296,9 @@ li a:hover {
 }
 
 .skills-section{
-	background-color: #E4E4E4; 
+	background-color: #E4E4E4;
+	background-image: url('../img/sayagata-400px.png');
+	background-attachment: fixed; 
 	min-height: 300px;
 	padding-bottom: 20px;
 }
@@ -297,8 +333,12 @@ li a:hover {
 	height: 130px;
 	width: 130px;
 	margin: 10px;
+	-ms-transform: translateX(-600px);
+    -webkit-transform: translateX(-600px);
 	transform: translateX(-600px);
 	-webkit-filter: contrast(1.5);
+	filter: contrast(1.5);
+	-webkit-transition: all 0.7s ease-in-out;
 	transition: all 0.7s ease-in-out;
 	opacity: 0;
 }
@@ -309,7 +349,10 @@ li a:hover {
 /*the translateX will make the screen's width bigger on mobile*/
 .my-info{
 	margin: 10px 0px 20px 0px;
+	-ms-transform: translateX(100px);
+    -webkit-transform: translateX(100px);
 	transform: translateX(100px);
+	-webkit-transition: all 1.1s ease-in-out;
 	transition: all 1.1s ease-in-out;
 	opacity: 0;
 }
@@ -331,11 +374,15 @@ li a:hover {
 }
 @media only screen and (max-device-width: 750px) {
 	.my-info{
+		-ms-transform: translateX(50px);
+    	-webkit-transform: translateX(50px);
 		transform: translateX(50px);
 	}
  }
 @media only screen and (max-device-width: 350px) {
 	.my-info{
+		-ms-transform: translateX(10px);
+    	-webkit-transform: translateX(10px);
 		transform: translateX(10px);
 	}
  }
@@ -365,6 +412,7 @@ li a:hover {
 	color: white;
 	background-color: #444;
 	z-index: 10;
+	-webkit-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
 }
 
@@ -384,6 +432,8 @@ li a:hover {
 /*this class has to be after the classes that want to be overwritten are declared, otherwise it won't overwrite 
 the css properties */
 .show-me{
+	-ms-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
 	transform: translateX(0px);
 	opacity: 1;
 }
@@ -420,6 +470,8 @@ the css properties */
 .chart .label {
 	margin: -9px 0 71px 0;
 	letter-spacing: -1px;
+	color: #6F6F6F;
+    font-weight: 400;
 }
 
 .chart .skill {
@@ -437,6 +489,7 @@ the css properties */
 }
 
 .skill-css{
+	-webkit-transition: all 1s ease-in-out;
 	transition: all 1s ease-in-out;
 	height: 77%;
 	background-color: red;
@@ -444,6 +497,7 @@ the css properties */
 }
 
 .skill-html{
+	-webkit-transition: all 1.1s ease-in-out;
 	transition: all 1.1s ease-in-out;
 	height: 80%;
 	background-color: red;
@@ -451,6 +505,7 @@ the css properties */
 }
 
 .skill-javascript{
+	-webkit-transition: all 1.2s ease-in-out;
 	transition: all 1.2s ease-in-out;
 	height: 75%;
 	background-color: red;
@@ -458,6 +513,7 @@ the css properties */
 }
 
 .skill-csharp{
+	-webkit-transition: all 1.3s ease-in-out;
 	transition: all 1.3s ease-in-out;
 	height: 76%;
 	background-color: red;
@@ -465,6 +521,7 @@ the css properties */
 }
 
 .skill-sql{
+	-webkit-transition: all 1.4s ease-in-out;
 	transition: all 1.4s ease-in-out;
 	height: 82%;
 	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
@@ -473,16 +530,56 @@ the css properties */
 it won't behave just as it would usually do with a normal background color*/
 .chart li:hover .skill{
 	/*transform: translateY(-10px);*/
+	-webkit-animation: example;
+	-webkit-animation: 0.8s;
 	animation-name: example;
     animation-duration: 0.8s;
 }
 
+@-webkit-keyframes example {
+    0%   {-ms-transform: translateY(0px);
+    	-webkit-transform: translateY(0px);
+    	transform: translateY(0px);
+    }
+    25%  {-ms-transform: translateY(-10px);
+    	-webkit-transform: translateY(-10px);
+    	transform: translateY(-10px);
+    }
+    50%  {-ms-transform: translateY(0px);
+    	-webkit-transform: translateY(0px);
+    	transform: translateY(0px);
+    }
+    75%  {-ms-transform: translateY(-10px);
+    	-webkit-transform: translateY(-10px);
+    	transform: translateY(-10px);
+    }
+    100% {-ms-transform: translateY(0px);
+    	-webkit-transform: translateY(0px);
+    	transform: translateY(0px);
+    }
+}
+
 @keyframes example {
-    0%   {transform: translateY(0px)}
-    25%  {transform: translateY(-10px)}
-    50%  {transform: translateY(0px)}
-    75%  {transform: translateY(-10px)}
-    100% {transform: translateY(0px)}
+    0%   {-ms-transform: translateY(0px);
+    	-webkit-transform: translateY(0px);
+    	transform: translateY(0px);
+    }
+    25%  {-ms-transform: translateY(-10px);
+    	-webkit-transform: translateY(-10px);
+    	transform: translateY(-10px);
+    }
+    50%  {-ms-transform: translateY(0px);
+    	-webkit-transform: translateY(0px);
+    	transform: translateY(0px);
+    }
+    75%  {-ms-transform: translateY(-10px);
+    	-webkit-transform: translateY(-10px);
+    	transform: translateY(-10px);
+    }
+    100% {-ms-transform: translateY(0px);
+    	-webkit-transform: translateY(0px);
+    	transform: translateY(0px);
+    }
 }
 
 /*mobile menu */
@@ -490,6 +587,10 @@ it won't behave just as it would usually do with a normal background color*/
 
 	#header{
 		height: 200px;
+	}
+
+	img.main-logo{
+	width: 70px;
 	}
 
 	.burger-nav{
@@ -514,6 +615,18 @@ it won't behave just as it would usually do with a normal background color*/
 
 	.header-title div p span{
 		font-size: 1em;
+	}
+
+	.options-menu{
+		min-width: 200px;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 550px) {
+	.chart .label {
+		-ms-transform: rotate(-70deg) translateX(-6px);
+    	-webkit-transform: rotate(-70deg) translateX(-6px);
+		transform: rotate(-70deg) translateX(-6px);
 	}
 }
 
