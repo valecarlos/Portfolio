@@ -10,7 +10,7 @@ body{
 	display: none;
 }
 
-img.main-logo{
+svg.main-logo{
 	width: 100px;
 }
 
@@ -425,13 +425,15 @@ li a:hover {
 }
 
 #resp-section{
-	padding: 30px;
-	background-color: rgb(4,47,68);
+	padding: 8px;
+	background-color: rgb(4,139,208);
+	/*font-family: 'Covered By Your Grace', cursive;*/
 }
 
 #resp-section h2{
 	text-align: center;
 	color: white;
+	font-weight: 400;
 }
 
 .resp-animation{
@@ -482,11 +484,16 @@ li a:hover {
 	display: inline-block;
 	background-color: blue;
 	margin: 2px auto;
+	transition: all 0.3s ease-in-out;
 	animation-name: ani-resp-con;
 	animation-duration: 3s;
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
 	animation-delay: 2s;
+}
+
+.resp-animation .resp-content:hover{
+	opacity: 0.6;
 }
 
 .resp-animation .resp-content:nth-child(2){
@@ -511,7 +518,7 @@ li a:hover {
 
 @keyframes resp{
   0%   {width:300px; border-radius: 0px;}
-  30%   {width:300px; border-radius: 0px;}
+  25%   {width:300px; border-radius: 0px;}
   45%   {width:210px; border-radius: 3px;}
   55%   {width:210px; border-radius: 3px;}
   70% {width:130px; border-radius: 6px;}
@@ -520,7 +527,7 @@ li a:hover {
 
 @keyframes ani-resp-con{
   0%   {width:20%;}
-  30%   {width:20%;}
+  25%   {width:20%;}
   45%   {width:45%;}
   55%   {width:45%;}
   70% {width:80%;}
@@ -528,8 +535,8 @@ li a:hover {
 }
 
 @keyframes ani-mini-menu{
-	0%   {visibility:hidden;}
-  30%   {visibility:hidden;}
+  0%   {visibility:hidden;}
+  25%   {visibility:hidden;}
   45%   {visibility:visible;}
   55%   {visibility:visible;}
   70% {visibility:visible;}
@@ -588,6 +595,7 @@ the css properties */
 	letter-spacing: -1px;
 	color: #6F6F6F;
     font-weight: 400;
+    /*font-family: 'Covered By Your Grace', cursive;*/
 }
 
 .chart .skill {

@@ -2,7 +2,6 @@ $( document ).ready(function() {
     //initialize the functionality of the side menu
     var slideInMenu = function (){
         $("#slideMenuButton").on("click", function(){
-        console.log("im here");
         $(".slide-in-menu").toggleClass("slide-in-visible");
         return  false;
         });
