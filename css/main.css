@@ -204,8 +204,9 @@ li a:hover {
 	font-weight: 400;
 }
 .content{
-	margin: 40px 10% 20px 10%;
-	min-height: 800px;
+	margin: 40px auto 20px auto;
+	max-width: 1300px; 
+	padding: 0px 20px;
 	text-align: center;
 }
 
@@ -213,9 +214,10 @@ li a:hover {
 /*this contains the image card and the description of the project*/
 .desc-card{
 	/*min-width: 300px;*/
-	max-width: 350px;
+	max-width: 340px;
 	display: inline-block;
 	margin: 10px 10px 20px 10px;
+	vertical-align: top;
 }
 
 .desc-card h4{
@@ -291,8 +293,9 @@ li a:hover {
 	display: inline-block;
     padding: 6px;
     margin: 7px;
-    text-decoration: underline;
+    text-decoration: none;
     font-size: 15px;
+    color: #008b8b;
 }
 
 .skills-section{
@@ -746,6 +749,12 @@ it won't behave just as it would usually do with a normal background color*/
 	}
 }
 
+@media only screen and (max-width: 1300px) {
+	.desc-card{
+		max-width: 320px;
+	}
+}
+ 
 @media only screen and (min-width: 320px) and (max-width: 550px) {
 	.chart .label {
 		-ms-transform: rotate(-70deg) translateX(-6px);
