@@ -85,6 +85,13 @@ img.menu-logo{
 	bottom: 0px;
 	background-color: white;
 	border-right: solid 3px #9E9E9E;
+	transform: translate3d(-100%,0,0);
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+.slide-in-visible .options-menu{
+	transform: translate3d(0%,0,0);
 }
 
 .options-menu ul{
