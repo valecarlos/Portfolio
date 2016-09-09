@@ -215,6 +215,7 @@ li a:hover {
 	max-width: 1300px; 
 	padding: 0px 20px;
 	text-align: center;
+	overflow: hidden;
 }
 
 
@@ -225,6 +226,10 @@ li a:hover {
 	display: inline-block;
 	margin: 10px 10px 20px 10px;
 	vertical-align: top;
+}
+
+.hidden{
+	display: none;
 }
 
 .desc-card h4{
@@ -319,6 +324,32 @@ li a:hover {
 	margin: auto; /*this will center the div within the section*/
 }
 
+.section-div-about{
+	padding: 30px 20px 20px 20px;
+	margin: auto;
+	text-align: center;
+	max-width: 600px;
+}
+
+.view-more-container{
+	text-align: center;
+	margin: 15px;
+}
+
+#view-more-proj{
+	background-color: transparent;
+	border: 2px solid rgb(35, 105, 236);
+	color: rgb(35, 105, 236);
+	transition: all .3s ease-in-out;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+
+#view-more-proj:hover{
+	color: white;
+	background-color: rgb(35, 105, 236);
+}
+
 @media only screen and (max-device-width: 750px) {
 	.section-div{
 		max-width: 600px;
@@ -329,6 +360,54 @@ li a:hover {
 	min-height: 300px;
 	padding-bottom: 20px;
 	overflow: hidden;
+	background: url('../img/primera1.png');
+	background-size: contain;
+	background-position: right;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+
+@media only screen and (max-width: 1550px) {
+	.section-div-about{
+		margin-left: 300px;
+	}
+}
+
+@media only screen and (max-width: 1300px) {
+	.section-div-about{
+		margin-left: 300px;
+		max-width: 450px;
+	}
+}
+
+@media only screen and (max-width: 1200px) {
+	.section-div-about{
+		margin-left: 200px;
+		max-width: 450px;
+	}
+
+	.about-section{
+		background-position: right -92px center;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	.section-div-about{
+		margin-left: 100px;
+		max-width: 450px;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.section-div-about{
+		margin: auto;
+		max-width: 600px;
+	}
+
+	.about-section{
+		background: none;
+	}
 }
 
 .contact-section{
@@ -339,6 +418,7 @@ li a:hover {
 }
 
 .thumbnail{
+	display: none;
 	border-radius: 50%;
 	height: 130px;
 	width: 130px;
@@ -665,9 +745,32 @@ it won't behave just as it would usually do with a normal background color*/
 .chart li:hover .skill{
 	/*transform: translateY(-10px);*/
 	-webkit-animation: example;
-	-webkit-animation: 0.8s;
+	-webkit-animation: 1s;
 	animation-name: example;
-    animation-duration: 0.8s;
+    animation-duration: 1s;
+}
+
+.desc-card{
+	-webkit-animation: fly-in-left;
+	-webkit-animation: 1.3s;
+	animation-name: fly-in-left;
+    animation-duration: 1.3s;
+}
+
+@-webkit-keyframes fly-in-left {
+	0%   {opacity: 0;
+		
+    }
+    100%   {opacity: 1;
+
+    }
+}
+
+@keyframes fly-in-left {
+	0%   {opacity: 0;
+    }
+    100%   {opacity: 1;
+    }
 }
 
 @-webkit-keyframes example {

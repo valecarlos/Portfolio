@@ -1,4 +1,5 @@
 $( document ).ready(function() { 
+    showViewMore();
     //initialize the functionality of the side menu
     var slideInMenu = function (){
         $("#slideMenuButton").on("click", function(){
@@ -100,3 +101,10 @@ $( document ).ready(function() {
     }());
     
 });
+
+function showViewMore(){
+    $('#view-more-proj').click(function(){
+        $('.hidden').removeClass('hidden');
+        $('#view-more-proj').addClass('hidden');
+    });
+}
